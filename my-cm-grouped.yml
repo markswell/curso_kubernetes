@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-cm
+data:
+  my.config.db: |
+    database: oracle
+    database_uri: oracle://localhost:3306
+  teste.field: hello
+

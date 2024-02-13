@@ -1,0 +1,69 @@
+O kubectl é uma ferramenta poderosa para interagir com clusters Kubernetes. Abaixo estão alguns comandos básicos que você pode usar para gerenciar e interagir com o Kubernetes usando o kubectl:
+
+Configuração e Informações Gerais:
+
+kubectl config view: Exibe a configuração atual do kubectl.
+kubectl cluster-info: Exibe informações sobre o cluster.
+Nós e Pods:
+
+kubectl get nodes: Lista os nós do cluster.
+kubectl get pods: Lista os pods no namespace atual.
+kubectl describe pod <pod-name>: Exibe detalhes sobre um pod específico.
+Deployment e Serviços:
+
+kubectl get deployments: Lista os deployments no namespace atual.
+kubectl get services: Lista os serviços no namespace atual.
+kubectl expose deployment <deployment-name> --type=LoadBalancer --port=<external-port>: Expõe um deployment como um serviço.
+Escalonamento e Atualização:
+
+kubectl scale deployment <deployment-name> --replicas=<num-replicas>: Escala o número de réplicas de um deployment.
+kubectl set image deployment/<deployment-name> <container-name>=<new-image>: Atualiza a imagem de um container em um deployment.
+Logs e Execução de Comandos:
+
+kubectl logs <pod-name>: Exibe os logs de um pod.
+kubectl exec -it <pod-name> -- /bin/bash: Executa um shell interativo dentro de um pod.
+Deletando Recursos:
+
+kubectl delete pod <pod-name>: Deleta um pod.
+kubectl delete deployment <deployment-name>: Deleta um deployment.
+kubectl delete service <service-name>: Deleta um serviço.
+Namespace:
+
+kubectl get namespaces: Lista os namespaces.
+kubectl create namespace <namespace-name>: Cria um novo namespace.
+kubectl get pods --namespace=<namespace-name>: Lista os pods em um namespace específico.
+Configuração de Contexto:
+
+kubectl config get-contexts: Lista os contextos disponíveis.
+kubectl config use-context <context-name>: Seleciona um contexto específico.
+Aplicação de Manifestos YAML:
+
+kubectl apply -f <filename.yaml>: Aplica um manifesto YAML.
+Proxy para o Dashboard:
+
+kubectl proxy: Inicia um servidor proxy local para acessar o Kubernetes Dashboard.
+Informações de Recursos:
+kubectl top nodes: Exibe a utilização de recursos nos nós.
+kubectl top pods: Exibe a utilização de recursos nos pods.
+Esses são apenas alguns dos muitos comandos disponíveis no kubectl. Você pode obter uma lista completa dos comandos e suas opções executando kubectl --help.
+
+Secrets:
+kubectl create secret generic <secret-name> --from-literal=<key>=<value>: Cria um secret.
+ConfigMaps:
+kubectl create configmap <configmap-name> --from-literal=<key>=<value>: Cria um ConfigMap.
+Visualização de Recursos:
+kubectl get <resource>: Lista todos os recursos do tipo especificado (por exemplo, kubectl get deployments).
+kubectl describe <resource> <resource-name>: Exibe detalhes sobre um recurso específico.
+Atualização de Imagem com Rolling Restart:
+kubectl rollout restart deployment <deployment-name>: Reinicia todas as réplicas de um deployment com uma nova imagem em um processo de rolling restart.
+Rollback de Atualização:
+kubectl rollout undo deployment <deployment-name>: Desfaz a última atualização de um deployment.
+Exposição de Portas Localmente:
+kubectl port-forward <pod-name> <local-port>:<pod-port>: Encaminha portas locais para um pod.
+Verificação do Status do Rolling Update:
+kubectl rollout status deployment <deployment-name>: Exibe o status de um rolling update.
+Limites e Requisitos de Recursos:
+kubectl describe pod <pod-name> | grep -i "cpu\|memory": Exibe os limites e requisitos de recursos de um pod.
+Injeção de Lado do Cliente:
+kubectl alpha debug <pod-name>: Inicia uma sessão de depuração em um pod.
+Lembre-se de que a versão específica do kubectl e suas funcionalidades podem variar. Sempre consulte a documentação do Kubernetes para obter informações detalhadas sobre os comandos e suas opções.

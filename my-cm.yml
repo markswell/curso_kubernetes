@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-cm
+data:
+  database: oracle
+  database_uri: oracle://localhost:3306
+

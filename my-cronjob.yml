@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: myjob
+spec:
+  suspend: true 
+  failedJobsHistoryLimit: 5
+  successfulJobsHistoryLimit: 10
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      completions: 10
+      completionMode: "Indexed"
+      parallelism: 5
+      template:
+        metadata:
+          name: my-pod-job
+        spec:
+          containers:
+          - name: my-job-container
+            image: busybox
+            command: ["/bin/sh",  "-c", "for i in 1 2; do echo Lucky number $i = $((1 + RANDOM % 70)); done"]
+          restartPolicy: OnFailure

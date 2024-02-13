@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Namespace
+metadata: 
+  name: jupyter
+  annotations:
+    desc: "Namespace criated to project"
+    proj: "Final project for k8s course"
+    owner: "Markswell Menezes"
+    email: "markswellmenezes@gmail.com"
